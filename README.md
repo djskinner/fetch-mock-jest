@@ -51,7 +51,7 @@ The following custom jest expectation methods, proxying through to `fetch-mock`'
 ### Notes
 
 - `filter` and `options` are the same as those used by [`fetch-mock`'s inspection methods](http://www.wheresrhys.co.uk/fetch-mock/#api-inspectionfundamentals)
-- The obove methods can have `Fetched` replaced by any of the following verbs to scope to a particular method: + Got + Posted + Put + Deleted + FetchedHead + Patched
+- The above methods can have `Fetched` replaced by any of the following verbs to scope to a particular method: + Got + Posted + Put + Deleted + FetchedHead + Patched
 
 e.g. `expect(fetchMock).toHaveLastPatched(filter, options)`
 
@@ -88,8 +88,8 @@ test(async () => {
 		);
 
 	expect(await userManager.getAll()).toEqual([{ name: 'bob' }]);
-	expect(fetchMock).toHaveLastFetched('http://example.com/users
-		get');
+	expect(fetchMock).toHaveLastFetched('http://example.com/users,
+		'get');
 	await userManager.create({ name: true });
 	expect(fetchMock).toHaveLastFetched(
 		{
